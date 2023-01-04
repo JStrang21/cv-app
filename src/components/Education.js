@@ -29,26 +29,26 @@ class Education extends Component {
         const { school, degree, from, to} = this.state
         return (
             <div>
-                <h2>Education</h2>
+                <h3>Education</h3>
                 <form onSubmit={this.submitHandler}>
                     <label htmlFor='schoolInput'>
                         School:
-                        <input type='text' id='schoolInput' name='school' value={school} onChange={this.handleChange}></input>
+                        <input type='text' id='schoolInput' name='school' value={school} onChange={this.handleChange}/>
                     </label>
 
                     <label htmlFor='degreeInput'>
                         Degree/Major:
-                        <input type='text' id='degreeInput' name='degree' value={degree} onChange={this.handleChange}></input>
+                        <input type='text' id='degreeInput' name='degree' value={degree} onChange={this.handleChange}/>
                     </label>
 
                     <label htmlFor='fromInput'>
                         From:
-                        <input type='date' id='fromInput' name='from' value={from} onChange={this.handleChange}></input>
+                        <input type='date' id='fromInput' name='from' value={from} onChange={this.handleChange}/>
                     </label>
 
                     <label htmlFor='toInput'>
                         To:
-                        <input type='date' id='toInput' name='to' value={to} onChange={this.handleChange}></input>
+                        <input type='date' id='toInput' name='to' value={to} onChange={this.handleChange}/>
                     </label>
                     <input type='submit' value='Submit'/>
                 </form>
