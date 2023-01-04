@@ -7,14 +7,14 @@ class Personal extends Component {
         this.state = {
             firstName: "",
             lastName: "",
-            phone: null,
+            phone: "",
             email: "",
         }
     }
 
     onSubmitHandler = (e) => {
         e.preventDefault();
-
+        console.log(this.state)
     }
 
     handleFirstNameChange = (e) => {
@@ -65,7 +65,7 @@ class Personal extends Component {
 
                     <label htmlFor='phoneInput'>
                         Phone:
-                        <input type='tel' onChange={this.handlePhoneChange} value={phone} id='phoneInput'></input>
+                        <input type='tel' onChange={this.handlePhoneChange} value={phone} id='phoneInput'  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder='000-000-0000'></input>
                     </label>
                     <input type='submit' value='submit'></input>
                 </form>
