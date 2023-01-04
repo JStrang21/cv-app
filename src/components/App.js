@@ -1,4 +1,4 @@
-import React, { Component } from 'React';
+import React, { Component } from 'react';
 import Personal from './Personal.js';
 import Education from './Education.js';
 import Work from './Work.js';
@@ -19,3 +19,5 @@ class App extends Component{
         )
     }
 }
+
+export default App

@@ -1,4 +1,4 @@
-import React, { Component } from 'React';
+import React, { Component } from 'react';
 
 class Education extends Component {
     render() {
@@ -7,3 +7,5 @@ class Education extends Component {
         )
     }
 }
+
+export default Education

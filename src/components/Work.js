@@ -1,4 +1,4 @@
-import React, { Component } from 'React';
+import React, { Component } from 'react';
 
 class Work extends Component {
     render() {
@@ -7,3 +7,5 @@ class Work extends Component {
         )
     }
 }
+
+export default Work
