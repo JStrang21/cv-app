@@ -50,6 +50,11 @@ class Education extends Component {
                         To:
                         <input type='date' id='toInput' name='to' value={to} onChange={this.handleChange}/>
                     </label>
+                    
+                    <input type='button' value='Edit'/>
+
+                    <input type='button' value='Delete'/>
+                    
                     <input type='submit' value='Submit'/>
                 </form>
             </div>

@@ -15,7 +15,6 @@ class Work extends Component {
 
     submitHandler = (e) => {
         e.preventDefault();
-        console.log(this.state)
     }
 
     changeHandler = (e) => {
@@ -57,6 +56,10 @@ class Work extends Component {
                         Tasks:
                         <textarea type='text' id='tasksInput' name='tasks' value={tasks} onChange={this.changeHandler}/>
                     </label>
+                    
+                    <input type='button' value='Edit'/>
+
+                    <input type='button' value='Delete'/>
 
                     <input type='submit' value='Submit'/>
                 </form>

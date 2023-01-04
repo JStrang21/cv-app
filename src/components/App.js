@@ -7,14 +7,30 @@ import Work from './Work.js';
 class App extends Component{
     constructor() {
         super()
+
+        this.state = {
+            personal: "",
+            education: "",
+            work: "",
+        }
+    }
+
+    handleData = (data) => {
+        this.setState({
+            personal: data,
+        })
     }
 
     render() {
         return (
             <div>
-                <Personal />
+                <Personal personalInput={this.handleData}/>
                 <Education />
                 <Work />
+                
+                <button onClick={() => {
+                    console.log(this.state.personal)
+                }}>Test Submit</button>
             </div>
         )
     }
