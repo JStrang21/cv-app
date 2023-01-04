@@ -25,38 +25,6 @@ class Education extends Component {
         })
     }
 
-    handleSchoolChange = (e) => {
-        const target = e.target;
-        console.log(target.name)
-        this.setState({
-            school: e.target.value
-        })
-    }
-
-    handleDegreeChange = (e) => {
-        const target = e.target;
-        console.log(target.name)
-        this.setState({
-            degree: e.target.value
-        })
-    }
-
-    handleFromChange = (e) => {
-        const target = e.target;
-        console.log(target.name)
-        this.setState({
-            from: e.target.value
-        })
-    }
-
-    handleToChange = (e) => {
-        const target = e.target;
-        console.log(target.name)
-        this.setState({
-            to: e.target.value
-        })
-    }
-
     render() {
         const { school, degree, from, to} = this.state
         return (

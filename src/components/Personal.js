@@ -14,30 +14,14 @@ class Personal extends Component {
 
     onSubmitHandler = (e) => {
         e.preventDefault();
-        //console.log(this.state)
+        console.log(this.state)
     }
 
-    handleFirstNameChange = (e) => {
-        this.setState({
-            firstName: e.target.value
-        })
-    }
+    handleChange = (e) => {
+        const inputName = e.target.name;
 
-    handleLastNameChange = (e) => {
         this.setState({
-            lastName: e.target.value
-        })
-    }
-
-    handleEmailChange = (e) => {
-        this.setState({
-            email: e.target.value
-        })
-    }
-
-    handlePhoneChange = (e) => {
-        this.setState({
-            phone: e.target.value
+            [inputName]: e.target.value
         })
     }
 
@@ -50,22 +34,22 @@ class Personal extends Component {
                 <form onSubmit={this.onSubmitHandler}>
                     <label htmlFor='firstNameInput'>
                         First Name:
-                        <input type='text' onChange={this.handleFirstNameChange} value={firstName} id='firstNameInput'></input>
+                        <input type='text' name='firstName' onChange={this.handleChange} value={firstName} id='firstNameInput'></input>
                     </label>
 
                     <label htmlFor='lastNameInput'>
                         Last Name:
-                        <input type='text' onChange={this.handleLastNameChange} value={lastName} id='lastNameInput'></input>
+                        <input type='text' name='lastName' onChange={this.handleChange} value={lastName} id='lastNameInput'></input>
                     </label>
 
                     <label htmlFor='emailInput'>
                         Email:
-                        <input type='email' onChange={this.handleEmailChange} value={email} id='emailInput'></input>
+                        <input type='email' name='email' onChange={this.handleChange} value={email} id='emailInput'></input>
                     </label>
 
                     <label htmlFor='phoneInput'>
                         Phone:
-                        <input type='tel' onChange={this.handlePhoneChange} value={phone} id='phoneInput'  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder='000-000-0000'></input>
+                        <input type='tel' name='phone' onChange={this.handleChange} value={phone} id='phoneInput'  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder='000-000-0000'></input>
                     </label>
                     <input type='submit' value='Submit'/>
                 </form>
