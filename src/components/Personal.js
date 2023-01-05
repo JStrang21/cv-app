@@ -51,12 +51,12 @@ class Personal extends Component {
                         Phone:
                         <input type='tel' name='phone' onChange={this.handleChange} value={phone} id='phoneInput' pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder='000-000-0000'/>
                     </label>
-
+                    
                     <input type='button' value='Edit'/>
 
                     <input type='button' value='Delete'/>
                     
-                    <input type='submit' value='Submit'/>
+                    <input type='submit' value='Save'/>
                 </form>
             </div>
         )

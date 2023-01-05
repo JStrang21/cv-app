@@ -15,6 +15,7 @@ class Work extends Component {
 
     submitHandler = (e) => {
         e.preventDefault();
+        this.props.workInput(this.state)
     }
 
     changeHandler = (e) => {
@@ -58,10 +59,12 @@ class Work extends Component {
                     </label>
                     
                     <input type='button' value='Edit'/>
+                    
+                    <input type='button' value='Add Another'/>
 
                     <input type='button' value='Delete'/>
 
-                    <input type='submit' value='Submit'/>
+                    <input type='submit' value='Save'/>
                 </form>
             </div>
         )

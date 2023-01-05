@@ -14,7 +14,7 @@ class Education extends Component {
 
     submitHandler = (e) => {
         e.preventDefault();
-        console.log(this.state)
+        this.props.educationInput(this.state)
     }
 
     handleChange = (e) => {
@@ -52,10 +52,12 @@ class Education extends Component {
                     </label>
                     
                     <input type='button' value='Edit'/>
+                    
+                    <input type='button' value='Add Another'/>
 
                     <input type='button' value='Delete'/>
                     
-                    <input type='submit' value='Submit'/>
+                    <input type='submit' value='Save'/>
                 </form>
             </div>
         )

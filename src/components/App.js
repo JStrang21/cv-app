@@ -10,26 +10,90 @@ class App extends Component{
 
         this.state = {
             personal: "",
+            personalToggle: true,
             education: "",
             work: "",
         }
     }
 
-    handleData = (data) => {
+    //If no data then display input
+    //Then save data and display in cleaner format without inputs-leave edit button
+    handlePersonal = (personalData) => {
         this.setState({
-            personal: data,
+            personal: personalData,
         })
     }
 
+    //If no data then display inputs
+    //Then save data and display in cleaner format without inputs-leave edit button for one education
+    //Leave add button so user can add another education form
+    //Same for work experience
+    handleEducation = (educationData) => {
+        this.setState({
+            education: educationData,
+        })
+    }
+
+    handleWork = (workData) => {
+        this.setState({
+            work: workData,
+        })
+    }
+
+    handlePersonalSave = () => {
+        this.setState({
+            personalToggle: 1
+        })
+    } 
+
     render() {
+        const { personal, personalToggle, education, work} = this.state;
+
+        let pElement;
+        console.log(personal)
+        if (personalToggle) {
+            pElement = <div>
+                            <Personal personalInput={this.handlePersonal}/>
+                            <button onClick={() => {
+                                this.setState({
+                                    personalToggle: !personalToggle
+                                })
+                            }}>Save Personal</button>
+                        </div>
+        }
+        else {
+            pElement =  <div>
+                            <h3>FirstName:</h3>
+                            <p>{personal.firstName}</p>
+                            <h3>LastName:</h3>
+                            <p>{personal.lastName}</p>
+                            <h3>Phone:</h3>
+                            <p>{personal.phone}</p>
+                            <h3>Email:</h3>
+                            <p>{personal.email}</p>
+                            <button onClick={() => {
+                                this.setState({
+                                    personalToggle: !personalToggle
+                                })
+                            }}>Save Personal</button>
+                        </div>
+        }
+
         return (
             <div>
-                <Personal personalInput={this.handleData}/>
-                <Education />
-                <Work />
+                {pElement}
+                {/*<Personal personalInput={this.handlePersonal}/>
+                <button onClick={() => {
+                    this.setState({
+                        personalToggle: !personalToggle
+                    })
+                    console.log(personalToggle)
+                }}>Save Personal</button> */}
+                <Education educationInput={this.handleEducation}/>
+                <Work workInput={this.handleWork}/>
                 
                 <button onClick={() => {
-                    console.log(this.state.personal)
+                    console.log(this.state.education)
                 }}>Test Submit</button>
             </div>
         )
