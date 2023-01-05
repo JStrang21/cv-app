@@ -4,6 +4,14 @@ class Personal extends Component {
     constructor() {
         super();
 
+        /*if (this.props.previous) {
+            this.state = {
+                firstName: this.props.previous.firstName,
+                lastName: this.props.previous.lastName,
+                phone: this.props.previous.phone,
+                email: this.props.previous.email,
+            }
+        }*/
         this.state = {
             firstName: "",
             lastName: "",
@@ -26,8 +34,8 @@ class Personal extends Component {
     }
 
     render() {
-        const { firstName, lastName, phone, email} = this.state;
-
+        const { firstName, lastName, phone, email } = typeof this.props.previous !== "object" ? this.state : this.props.previous;
+            
         return (
             <div>
                 <h3>Personal Information</h3>
@@ -51,7 +59,7 @@ class Personal extends Component {
                         Phone:
                         <input type='tel' name='phone' onChange={this.handleChange} value={phone} id='phoneInput' pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder='000-000-0000'/>
                     </label>
-                    
+
                     <input type='button' value='Edit'/>
 
                     <input type='button' value='Delete'/>

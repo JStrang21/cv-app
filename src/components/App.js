@@ -50,10 +50,9 @@ class App extends Component{
         const { personal, personalToggle, education, work} = this.state;
 
         let pElement;
-        console.log(personal)
         if (personalToggle) {
             pElement = <div>
-                            <Personal personalInput={this.handlePersonal}/>
+                            <Personal personalInput={this.handlePersonal} previous={personal}/>
                             <button onClick={() => {
                                 this.setState({
                                     personalToggle: !personalToggle
@@ -75,7 +74,7 @@ class App extends Component{
                                 this.setState({
                                     personalToggle: !personalToggle
                                 })
-                            }}>Save Personal</button>
+                            }}>Edit Personal</button>
                         </div>
         }
 
