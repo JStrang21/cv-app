@@ -10,7 +10,7 @@ class App extends Component{
 
         this.state = {
             personal: "",
-            education: "",
+            education: [<Education />],
             work: "",
         }
     }
@@ -29,7 +29,7 @@ class App extends Component{
     //Same for work experience
     handleEducation = (educationData) => {
         this.setState({
-            education: educationData,
+            education: [...this.state.education, educationData],
         })
     }
 
@@ -45,52 +45,33 @@ class App extends Component{
         })
     } 
 
+    addEducation = () => {
+        this.setState({
+            education: [...this.state.education, <Education />]
+        })
+    }
+
+    deleteEducation = (e) => {
+        console.log(e.target)
+        
+    }
+
     render() {
         const { personal, personalToggle, education, work} = this.state;
 
-        /*let pElement;
-        if (personalToggle) {
-            pElement = <div>
-                            <Personal personalInput={this.handlePersonal} previous={personal}/>
-                            <button type="submit" onClick={() => {
-                                this.setState({
-                                    personalToggle: !personalToggle
-                                })
-                            }}>Save Personal</button>
-                        </div>
-        }
-        else {
-            pElement =  <div>
-                            <h3>FirstName:</h3>
-                            <p>{personal.firstName}</p>
-                            <h3>LastName:</h3>
-                            <p>{personal.lastName}</p>
-                            <h3>Phone:</h3>
-                            <p>{personal.phone}</p>
-                            <h3>Email:</h3>
-                            <p>{personal.email}</p>
-                            <button onClick={() => {
-                                this.setState({
-                                    personalToggle: !personalToggle
-                                })
-                            }}>Edit Personal</button>
-                        </div>
-        }*/
+        let educationList = education.map((item, i) => {
+            return <div>{item}</div>
+        })
 
         return (
             <div>
-                <Personal />
-                
-                {/* pElement
-
-                <Personal personalInput={this.handlePersonal}/>
-                <button onClick={() => {
-                    this.setState({
-                        personalToggle: !personalToggle
-                    })
-                    console.log(personalToggle)
-                }}>Save Personal</button> */}
+                <Personal flag={this.deleteEducation}/>
+                {educationList}
+                {/*
                 <Education educationInput={this.handleEducation}/>
+                */}
+                <button onClick={this.addEducation}>Add</button>
+
                 <Work workInput={this.handleWork}/>
                 
                 <button onClick={() => {
