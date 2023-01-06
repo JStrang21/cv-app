@@ -10,7 +10,6 @@ class App extends Component{
 
         this.state = {
             personal: "",
-            personalToggle: true,
             education: "",
             work: "",
         }
@@ -49,11 +48,11 @@ class App extends Component{
     render() {
         const { personal, personalToggle, education, work} = this.state;
 
-        let pElement;
+        /*let pElement;
         if (personalToggle) {
             pElement = <div>
                             <Personal personalInput={this.handlePersonal} previous={personal}/>
-                            <button onClick={() => {
+                            <button type="submit" onClick={() => {
                                 this.setState({
                                     personalToggle: !personalToggle
                                 })
@@ -76,12 +75,15 @@ class App extends Component{
                                 })
                             }}>Edit Personal</button>
                         </div>
-        }
+        }*/
 
         return (
             <div>
-                {pElement}
-                {/*<Personal personalInput={this.handlePersonal}/>
+                <Personal />
+                
+                {/* pElement
+
+                <Personal personalInput={this.handlePersonal}/>
                 <button onClick={() => {
                     this.setState({
                         personalToggle: !personalToggle
