@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import uniqid from 'uniqid';
 
 class Education extends Component {
     constructor() {
@@ -10,11 +11,13 @@ class Education extends Component {
             from: "",
             to: "",
             flag: true,
+            delete: false
         }
     }
 
     submitHandler = (e) => {
         e.preventDefault();
+        //this.props.delete()
         //this.props.flag(false)
         this.setState({
             flag: false
@@ -35,13 +38,17 @@ class Education extends Component {
             degree: "",
             from: "",
             to: "",
-            flag: true,
+            delete: true,
         })
-        this.props.flag(true)
+        let flag = this.state.delete
+        this.props.onDelete(flag)
     }
 
     render() {
         const { school, degree, from, to, flag} = this.state
+
+        let unique = uniqid();
+        const {idToPass} = this.props;
 
         if (flag === true) {
             return (
@@ -67,11 +74,7 @@ class Education extends Component {
                             To:
                             <input type='date' id='toInput' name='to' value={to} onChange={this.handleChange}/>
                         </label>
-                        
-                        <input type='button' value='Edit'/>
-                    
-                        <input type='button' value='Delete' onClick={this.deleteData}/>
-                        
+                                                                    
                         <input type='submit' value='Save'/>
                     </form>
                 </div>

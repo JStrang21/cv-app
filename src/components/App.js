@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Personal from './Personal.js';
 import Education from './Education.js';
 import Work from './Work.js';
+import uniqid from 'uniqid';
 
 
 class App extends Component{
@@ -10,7 +11,7 @@ class App extends Component{
 
         this.state = {
             personal: "",
-            education: [<Education />],
+            education: [<Education/>],
             work: "",
         }
     }
@@ -20,6 +21,12 @@ class App extends Component{
     handlePersonal = (personalData) => {
         this.setState({
             personal: personalData,
+        })
+    }
+
+    handleWork = (workData) => {
+        this.setState({
+            work: workData,
         })
     }
 
@@ -33,10 +40,21 @@ class App extends Component{
         })
     }
 
-    handleWork = (workData) => {
+    addEducation = () => {
         this.setState({
-            work: workData,
+            education: [...this.state.education, <Education />]
         })
+    }
+
+    deleteEducation = i => {
+        const newList = this.state.education.splice(i, 1);
+        this.setState({
+            education: [newList],
+        })
+        /*let newList = this.state.education.filter((item) => item.key !== i);
+        this.setState({
+            education: [newList]
+        })*/
     }
 
     handlePersonalSave = () => {
@@ -45,32 +63,28 @@ class App extends Component{
         })
     } 
 
-    addEducation = () => {
-        this.setState({
-            education: [...this.state.education, <Education />]
-        })
-    }
-
-    deleteEducation = (e) => {
-        console.log(e.target)
-        
+    flag = (e) => {
+        console.log(e)
     }
 
     render() {
         const { personal, personalToggle, education, work} = this.state;
 
         let educationList = education.map((item, i) => {
-            return <div>{item}</div>
-        })
+            return (<div key={i}>
+                        <Education key={i}>{item}</Education>
+                        <input type='button' value='Delete' onClick={() => this.deleteEducation(i)}/>
+                    </div>
+        )})
 
         return (
             <div>
-                <Personal flag={this.deleteEducation}/>
+                <Personal/>
                 {educationList}
                 {/*
                 <Education educationInput={this.handleEducation}/>
                 */}
-                <button onClick={this.addEducation}>Add</button>
+                <button onClick={this.handleEducation}>Add</button>
 
                 <Work workInput={this.handleWork}/>
                 
