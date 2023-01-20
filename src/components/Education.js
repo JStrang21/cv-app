@@ -32,23 +32,8 @@ class Education extends Component {
         })
     }
 
-    deleteData = () => {
-        this.setState({
-            school: "",
-            degree: "",
-            from: "",
-            to: "",
-            delete: true,
-        })
-        let flag = this.state.delete
-        this.props.onDelete(flag)
-    }
-
     render() {
         const { school, degree, from, to, flag} = this.state
-
-        let unique = uniqid();
-        const {idToPass} = this.props;
 
         if (flag === true) {
             return (
