@@ -12,7 +12,7 @@ class App extends Component{
         this.state = {
             personal: "",
             education: [<Education/>],
-            work: "",
+            work: [<Work/>],
         }
     }
 
@@ -26,7 +26,13 @@ class App extends Component{
 
     handleWork = (workData) => {
         this.setState({
-            work: workData,
+            work: [...this.state.work, workData],
+        })
+    }
+
+    addWork = () => {
+        this.setState({
+            work: [...this.state.work, <Work/>]
         })
     }
 
@@ -57,6 +63,13 @@ class App extends Component{
         })*/
     }
 
+    deleteWork = i => {
+        const newList = this.state.work.splice(i, 1);
+        this.setState({
+            work: [newList],
+        })
+    }
+
     handlePersonalSave = () => {
         this.setState({
             personalToggle: 1
@@ -77,6 +90,14 @@ class App extends Component{
                     </div>
         )})
 
+        let workList = work.map((item, i) => {
+            return (<div key={i}>
+                        <Work key={i}>{item}</Work>
+                        <input type='button' value='Delete' onClick={() => this.deleteWork(i)}/>
+                    </div>
+            )
+        })
+ 
         return (
             <div>
                 <Personal/>
@@ -86,7 +107,10 @@ class App extends Component{
                 */}
                 <button onClick={this.handleEducation}>Add</button>
 
-                <Work workInput={this.handleWork}/>
+                {workList}
+
+                <button onClick={this.handleWork}>Add</button>
+
                 
                 <button onClick={() => {
                     console.log(this.state.education)

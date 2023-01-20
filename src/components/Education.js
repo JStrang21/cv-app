@@ -95,7 +95,7 @@ class Education extends Component {
                         this.setState({
                             flag: true
                         })
-                    }}>Edit Education</button>
+                    }}>Edit</button>
                 </div> 
             ) 
         }
