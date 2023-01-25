@@ -4,7 +4,6 @@ import Education from './Education.js';
 import Work from './Work.js';
 import uniqid from 'uniqid';
 
-
 class App extends Component{
     constructor() {
         super()
@@ -99,7 +98,7 @@ class App extends Component{
         })
  
         return (
-            <div>
+            <div className='container'>
                 <Personal/>
                 {educationList}
                 {/*
