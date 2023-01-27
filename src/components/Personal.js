@@ -79,7 +79,7 @@ class Personal extends Component {
         }
         else {
             return (
-                <div>
+                <div className="infoContainer">
                     <h3>FirstName:</h3>
                     <p>{firstName}</p>
                     <h3>LastName:</h3>

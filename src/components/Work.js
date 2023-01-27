@@ -72,7 +72,7 @@ class Work extends Component {
 
         else {
             return (
-                <div>
+                <div className="infoContainer">
                     <h3>Company:</h3>
                     <p>{company}</p>
                     <h3>Position Held:</h3>

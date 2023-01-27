@@ -26,3 +26,11 @@ input {
     margin: 5px 0;
     border: 2px solid rgb(206, 205, 205);
 }
+
+input[type="button"], input[type="submit"], button {
+    width: 50%;
+}
+
+.infoContainer > *{
+    margin: 10px 0;
+}

@@ -67,7 +67,7 @@ class Education extends Component {
         }
         else {
             return (
-                <div>
+                <div className="infoContainer">
                     <h3>School:</h3>
                     <p>{school}</p>
                     <h3>Degree/Major:</h3>
